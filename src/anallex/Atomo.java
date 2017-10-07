@@ -24,8 +24,8 @@ public class Atomo {
     public Atomo(int numLinha, Token atomo, String lexema){
         this.numLinha = numLinha;
         this.atomo = atomo;
-        defineAtributo();
         this.lexema = lexema;
+        defineAtributo();
     }
 
     public int getNumLinha() {
@@ -60,49 +60,38 @@ public class Atomo {
         this.lexema = lexema;
     }
     
-    public void defineAtributo(){
-        if(atomo == Token.OP_ARITMETICO ){
-            switch (lexema) {
+    private void defineAtributo(){
+            switch (this.lexema) {
                 case "-":
-                    atributo = Token.SUBTRACAO;
+                    this.atributo = Token.SUBTRACAO;
                     break;
                 case "+":
-                    atributo = Token.ADICAO;
+                    this.atributo = Token.ADICAO;
                     break;
                 case "*":
-                    atributo = Token.MULTIPLICACAO;
+                    this.atributo = Token.MULTIPLICACAO;
                     break;
                 case "/":
-                    atributo = Token.DIVISAO;
+                    this.atributo = Token.DIVISAO;
                     break;
-                default:
-                    break;
-            }
-        }
-        else if(atomo == Token.OP_RELACIONAL){
-            switch (lexema) {
                 case ">":
-                    atributo = Token.MAIOR;
+                    this.atributo = Token.MAIOR;
                     break;
                 case "<":
-                    atributo = Token.MENOR;
+                    this.atributo = Token.MENOR;
                     break;
                 case "=":
-                    atributo = Token.IGUAL;
+                    this.atributo = Token.IGUAL;
                     break;
                 default:
-                    break;
-            }
-        }
-        else{
-            atributo = Token.INDEF;
-        }
+                    this.atributo = Token.INDEF;
+                }
     }
     
     public void printAtomo(){
         System.out.print("Linha:" + numLinha + "\n");
-        System.out.print("Atomo:" + atomo + "\n");
-        System.out.print("Atributo:" + atributo + "\n");
         System.out.print("Lexema:" + lexema + "\n");
+        System.out.print("Atomo:" + atomo + "\n");
+        System.out.print("Atributo:" + atributo + "\n\n");
     }
 }
