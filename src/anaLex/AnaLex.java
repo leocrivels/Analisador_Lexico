@@ -19,7 +19,7 @@ public class AnaLex {
         List<Atomo> listaAtomos = new ArrayList<Atomo>();
         String identificador = new String();
         try{
-         BufferedReader br = new BufferedReader(new FileReader("I:/teste.txt"));
+         BufferedReader br = new BufferedReader(new FileReader(args[0]));
          while(br.ready()){
             char letra = (char) br.read();
             if(letra == ' '){
@@ -130,7 +130,7 @@ public class AnaLex {
                 if((letra >= 'A' && letra <= 'Z') || (letra >= 'a' && letra <= 'z') || (letra >= '0' && letra <= '9')){
                     //Palavra Reservada END
                     br.mark(3);
-                    if(letra == 'E' && (char) br.read() == 'N' && (char) br.read() == 'D'){
+                    if(Character.toUpperCase(letra) == 'E' && Character.toUpperCase((char) br.read()) == 'N' && Character.toUpperCase((char) br.read()) == 'D'){
                         if(!identificador.isEmpty()){
                             listaAtomos.add(new Atomo(numLinha, Token.IDENTIFICADOR, identificador));
                             identificador = new String();
@@ -148,7 +148,7 @@ public class AnaLex {
 
                     //Palavra Reservada READ
                     br.mark(4);
-                    if(letra == 'R' && (char) br.read() == 'E' && (char) br.read() == 'A' && (char) br.read() == 'D'){
+                    if(Character.toUpperCase(letra) == 'R' && Character.toUpperCase((char) br.read()) == 'E' && Character.toUpperCase((char) br.read()) == 'A' && (char) Character.toUpperCase((char) br.read()) == 'D'){
                         if(!identificador.isEmpty()){
                             listaAtomos.add(new Atomo(numLinha, Token.IDENTIFICADOR, identificador));
                             identificador = new String();
@@ -163,7 +163,7 @@ public class AnaLex {
 
                     //Palavra Reservada LET
                     br.mark(3);
-                    if(letra == 'L' && (char) br.read() == 'E' && (char) br.read() == 'T'){
+                    if(Character.toUpperCase(letra) == 'L' && Character.toUpperCase((char) br.read()) == 'E' && Character.toUpperCase((char) br.read()) == 'T'){
                         if(!identificador.isEmpty()){
                             listaAtomos.add(new Atomo(numLinha, Token.IDENTIFICADOR, identificador));
                             identificador = new String();
@@ -178,7 +178,7 @@ public class AnaLex {
 
                     //Palavra Reservada GO TO
                     br.mark(5);
-                    if(letra == 'G' && (char) br.read() == 'O' && (char) br.read() == ' ' && (char) br.read() == 'T' && (char) br.read() == 'O'){
+                    if(Character.toUpperCase(letra) == 'G' && Character.toUpperCase((char) br.read()) == 'O' && Character.toUpperCase((char) br.read()) == ' ' && Character.toUpperCase((char) br.read()) == 'T' && Character.toUpperCase((char) br.read()) == 'O'){
                         if(!identificador.isEmpty()){
                             listaAtomos.add(new Atomo(numLinha, Token.IDENTIFICADOR, identificador));
                             identificador = new String();
@@ -193,7 +193,7 @@ public class AnaLex {
 
                     //Palavra Reservada PRINT
                     br.mark(5);
-                    if(letra == 'P' && (char) br.read() == 'R' && (char) br.read() == 'I' && (char) br.read() == 'N' && (char) br.read() == 'T'){
+                    if(Character.toUpperCase(letra) == 'P' && Character.toUpperCase((char) br.read()) == 'R' && Character.toUpperCase((char) br.read()) == 'I' && Character.toUpperCase((char) br.read()) == 'N' && Character.toUpperCase((char) br.read()) == 'T'){
                         if(!identificador.isEmpty()){
                             listaAtomos.add(new Atomo(numLinha, Token.IDENTIFICADOR, identificador));
                             identificador = new String();
@@ -208,7 +208,7 @@ public class AnaLex {
 
                     //Palavra Reservada IF
                     br.mark(2);
-                    if(letra == 'I' && (char) br.read() == 'F'){
+                    if(Character.toUpperCase(letra) == 'I' && Character.toUpperCase((char) br.read()) == 'F'){
                         if(!identificador.isEmpty()){
                             listaAtomos.add(new Atomo(numLinha, Token.IDENTIFICADOR, identificador));
                             identificador = new String();
@@ -223,7 +223,7 @@ public class AnaLex {
 
                     //Palavra Reservada THEN
                     br.mark(4);
-                    if(letra == 'T' && (char) br.read() == 'H' && (char) br.read() == 'E' && (char) br.read() == 'N'){
+                    if(Character.toUpperCase(letra) == 'T' && Character.toUpperCase((char) br.read()) == 'H' && Character.toUpperCase((char) br.read()) == 'E' && Character.toUpperCase((char) br.read()) == 'N'){
                         if(!identificador.isEmpty()){
                             listaAtomos.add(new Atomo(numLinha, Token.IDENTIFICADOR, identificador));
                             identificador = new String();
@@ -238,7 +238,7 @@ public class AnaLex {
 
                     //Palavra Reservada ELSE
                     br.mark(5);
-                    if(letra == 'E' && (char) br.read() == 'L' && (char) br.read() == 'S' && (char) br.read() == 'E'){
+                    if( Character.toUpperCase(letra) == 'E' && Character.toUpperCase((char) br.read()) == 'L' && Character.toUpperCase((char) br.read()) == 'S' && Character.toUpperCase((char) br.read()) == 'E'){
                         if(!identificador.isEmpty()){
                             listaAtomos.add(new Atomo(numLinha, Token.IDENTIFICADOR, identificador));
                             identificador = new String();
