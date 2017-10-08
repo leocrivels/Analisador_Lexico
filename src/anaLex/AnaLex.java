@@ -1,4 +1,4 @@
-package anallex;
+package anaLex;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -8,7 +8,7 @@ import java.util.List;
  * e retornar seus átomos
  * @author Leonardo Crivellaro e Ikaro Arruda
  */
-public class AnalLex {
+public class AnaLex {
 
     /**
      * @param args arquivo de código

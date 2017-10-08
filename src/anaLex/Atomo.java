@@ -1,4 +1,4 @@
-package anallex;
+package anaLex;
 
 /**
  *  Classe responsável por definir o comportamento e as características de um
