@@ -1,21 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package anallex;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
- * @author Leo
+ * Classe principal do Analisador Léxico, responsável por ler um arquivo
+ * e retornar seus átomos
+ * @author Leonardo Crivellaro e Ikaro Arruda
  */
 public class AnalLex {
 
     /**
-     * @param args the command line arguments
+     * @param args arquivo de código
      */
     public static void main(String[] args) {
         int numLinha=1;
@@ -145,7 +141,6 @@ public class AnalLex {
                             listaAtomos.get(i).printAtomo();
                         }
                         return;
-                        //letra= (char) br.read();
                     }
                     else{
                         br.reset();

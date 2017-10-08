@@ -6,8 +6,8 @@
 package anallex;
 
 /**
- *
- * @author Leo
+ *  Lista dos possíveis átomos da linguagem MINILANG
+ * @author Leonardo Crivellaro e Ikaro Arruda
  */
 public enum Token {
     END,

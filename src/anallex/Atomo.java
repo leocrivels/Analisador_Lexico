@@ -1,13 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package anallex;
 
 /**
- *
- * @author Leo
+ *  Classe responsável por definir o comportamento e as características de um
+ * átomo retornado pelo analisador léxico
+ * @author Leonardo Crivellaro e Ikaro Arruda
  */
 public class Atomo {
     private int numLinha;
@@ -15,12 +11,21 @@ public class Atomo {
     private Token atributo;
     private String lexema;
     
+    /**
+     * Contrutor de átomo indefinido
+     */
     public Atomo(){
         numLinha = 0;
         atomo = Token.INDEF;
         atributo = Token.INDEF;
     }
     
+    /**
+     * Construtor de átomo com atributos definidos
+     * @param numLinha número da linha
+     * @param atomo Átomo retornado
+     * @param lexema Lexema
+     */
     public Atomo(int numLinha, Token atomo, String lexema){
         this.numLinha = numLinha;
         this.atomo = atomo;
@@ -60,6 +65,9 @@ public class Atomo {
         this.lexema = lexema;
     }
     
+    /**
+     * Método responsável por Definir qual o atributo do átomo
+     */
     private void defineAtributo(){
             switch (this.lexema) {
                 case "-":
@@ -88,6 +96,9 @@ public class Atomo {
                 }
     }
     
+    /**
+     * Método responsável por imprimir os atributos do objeto átomo
+     */
     public void printAtomo(){
         System.out.print("Linha:" + numLinha + "\n");
         System.out.print("Lexema:" + lexema + "\n");
