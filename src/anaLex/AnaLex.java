@@ -29,7 +29,6 @@ public class AnaLex {
                 br.mark(2);
                 if(letra == '/' && (char) br.read() == '/'){
                     listaAtomos.add(new Atomo(numLinha, Token.COMENTARIO,"//"));
-                    numLinha++;
                     do{
                     letra= (char) br.read();
                     }while(letra != '\n');
@@ -63,10 +62,6 @@ public class AnaLex {
                     br.mark(3);
                     if(Character.toUpperCase(letra) == 'E' && Character.toUpperCase((char) br.read()) == 'N' && Character.toUpperCase((char) br.read()) == 'D'){
                         listaAtomos.add(new Atomo(numLinha, Token.END, "END"));
-                        for(int i = 0 ; i < listaAtomos.size(); i++){
-                            listaAtomos.get(i).printAtomo();
-                        }
-                        return;
                     }
                     else{
                         br.reset();
@@ -202,11 +197,25 @@ public class AnaLex {
                 /**
                  * Reconhece Operadores aritméticos ("+", "−", "∗" e "/")
                  */
-                if(letra == '+' || letra == '-' || letra == '*' || letra == '/')
-                {   
+                br.mark(2);
+                if(letra == '+' || letra == '-' || letra == '*')
+                {
                     listaAtomos.add(new Atomo(numLinha, Token.OP_ARITMETICO, String.valueOf(letra)));
                 }
-
+                else if(letra == '/'){
+                    br.mark(1);
+                    if((char) br.read() == '/'){
+                        listaAtomos.add(new Atomo(numLinha, Token.COMENTARIO,"//"));
+                        do{
+                            letra= (char) br.read();
+                        }while(letra != '\n');
+                    }
+                    
+                    else{
+                        listaAtomos.add(new Atomo(numLinha, Token.OP_ARITMETICO, String.valueOf(letra)));
+                        br.reset();
+                    }
+                }
                 /**
                  * Reconhece Operadores relacionais (">", "<", "=")
                  */
@@ -248,6 +257,9 @@ public class AnaLex {
       }catch(IOException ioe){
          ioe.printStackTrace();
       }
+        for(int i = 0 ; i < listaAtomos.size(); i++){
+                            listaAtomos.get(i).printAtomo();
+                        }
    }
     
 }
