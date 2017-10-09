@@ -30,5 +30,7 @@ public enum Token {
     MAIOR,
     IGUAL,
     MENOR,
+    COMENTARIO,
+    CONSTANTE_INTEIRO,
     INDEF
 }

@@ -30,7 +30,11 @@ public class Atomo {
         this.numLinha = numLinha;
         this.atomo = atomo;
         this.lexema = lexema;
-        defineAtributo();
+        if(this.atomo == Token.OP_ARITMETICO || this.atomo == Token.OP_RELACIONAL){
+            defineAtributo();
+        }
+        else
+            this.atributo = Token.INDEF;
     }
 
     public int getNumLinha() {
