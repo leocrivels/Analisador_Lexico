@@ -13,7 +13,7 @@ public class AnaLex {
     /**
      * @param args arquivo de código
      */
-    public static void main(String[] args) {
+    public static List analisador_Lexico(String[] args) {
         int numLinha=1;
         Atomo atomo = new Atomo();
         List<Atomo> listaAtomos = new ArrayList<Atomo>();
@@ -260,6 +260,7 @@ public class AnaLex {
         for(int i = 0 ; i < listaAtomos.size(); i++){
                             listaAtomos.get(i).printAtomo();
                         }
+        return listaAtomos;
    }
     
 }
